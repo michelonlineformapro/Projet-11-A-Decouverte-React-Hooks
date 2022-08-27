@@ -1,0 +1,35 @@
+html,body{
+  background-color: steelblue;
+  color: darkred
+}
+
+
+#root{
+  background-color: steelblue;
+
+}
+
+#main-container{
+  background-color: steelblue;
+}
+
+.btn-ajouter{
+  transition: 0.2s;
+}
+
+.btn-ajouter:hover{
+  color: steelblue!important;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+.icone-poubelle{
+  transition: 0.2s;
+}
+
+.icone-poubelle:hover{
+  color: steelblue!important;
+  transform: scale(1.1);
+  cursor: pointer;
+}
