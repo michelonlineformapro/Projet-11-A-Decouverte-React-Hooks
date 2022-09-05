@@ -1,0 +1,17 @@
+console.log(unetache)
+        index = unetache.indexOf(...taches)
+        //.splice() recupère l'index concerné et en second paramètre le nombre d'index a supprimer
+        unetache.splice(index, 1);
+        console.log(index)
+        //On met a jour l'etat du  tableau avec le mutateur du hook
+        setTaches(unetache)
+
+
+
+        //On eclate le tableau de taches
+        const unetache = [...taches];
+        //.splice() recupère l'index concerné et en second paramètre le nombre d'index a supprimer
+        unetache.splice(index, 1);
+        //On met a jour l'etat du  tableau avec le mutateur du hook
+        setTaches(unetache)
+        //Cette fonction est appelé au clic sur l'icon poubelle de chaque <li>

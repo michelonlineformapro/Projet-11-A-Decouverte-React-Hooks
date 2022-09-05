@@ -84,16 +84,16 @@ function App() {
       const ajouterTache = (tache) => setTaches([...taches, {tache}]);
 
       //Supprimer une tache a l'aide de son index
-      const supprimerTache = (index) => {
-        //On eclate le tableau de taches
-        const unetache = [...taches];
-        //.splice() recupère l'index concerné et en second paramètre le nombre d'index a supprimer
-        unetache.splice(index, 1);
-        //On met a jour l'etat du  tableau avec le mutateur du hook
-        setTaches(unetache)
-        //Cette fonction est appelé au clic sur l'icon poubelle de chaque <li>
+      //array.filter(function(currentValue, index, arr), thisValue)
+      //https://www.w3schools.com/jsref/jsref_filter.asp
+      const supprimerTache = (index) => () =>{
+        setTaches(taches => taches.filter((callback, i) => i !== index))
+        console.log(index)
       }
 
+
+
+     
       //ici on realise une boucle sur le tableau de taches avec .map()
       //chaque <li> accéde au tableau taches et au objet present
       //On peu donc acceder a chaque element des objets du tableau de taches
@@ -106,7 +106,7 @@ function App() {
             {taches.map((uneTaches, index) => (
               <li key={index} className='mt-3 list-group-item d-flex justify-content-between'>
                   {uneTaches.tache}
-                  <span className='text-danger icone-poubelle' onClick={supprimerTache}>
+                  <span className='text-danger icone-poubelle' onClick={supprimerTache(index)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
                       <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                     </svg>
